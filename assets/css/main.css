@@ -107,6 +107,7 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-padding-top: 80px;/*避免header挡到*/
 	}
 
 	*, *:before, *:after {
