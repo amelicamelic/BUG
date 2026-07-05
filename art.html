@@ -105,8 +105,8 @@
 								<div class="album-list">
 									<a href="#" class="album">
 										<div class="grid">
-											<div class="cell" style="background-image:url()"></div>
-											<div class="cell" style="background-image:url()"></div>
+											<div class="cell" style="background-image:url(./album/logo/2.png)"></div>
+											<div class="cell" style="background-image:url(./album/logo/4.png)"></div>
 											<div class="cell" style="background-image:url()"></div>
 											<div class="cell" style="background-image:url()"></div>
 										</div>
@@ -114,7 +114,7 @@
 									</a>	
 									<a href="#" class="album">
 										<div class="grid">
-											<div class="cell" style="background-image:url()"></div>
+											<div class="cell" style="background-image:url(./album/logo/3.png)"></div>
 											<div class="cell" style="background-image:url()"></div>
 											<div class="cell" style="background-image:url()"></div>
 											<div class="cell" style="background-image:url()"></div>
@@ -132,7 +132,7 @@
 									</a>
 									<a href="#" class="album">
 										<div class="grid">
-											<div class="cell" style="background-image:url()"></div>
+											<div class="cell" style="background-image:url(./album/logo/1-1.jpeg)"></div>
 											<div class="cell" style="background-image:url()"></div>
 											<div class="cell" style="background-image:url()"></div>
 											<div class="cell" style="background-image:url()"></div>
@@ -209,12 +209,20 @@
 			gap: 0px;
 
 			aspect-ratio: 1 / 1;
-			background: #99999925;
+			background: #99999950;
 			
 			overflow: hidden;   /* 防止整体溢出 */
 			position: relative;
 		}
-
+		/* 白色半透明遮罩 */
+		.grid::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: #ffffff80;
+			z-index: 10;
+			pointer-events: none;
+		}
 		.cell {
 			overflow: hidden;
 			position: relative;
@@ -230,7 +238,7 @@
 			background-image: inherit;
 
 			transform: scale(1.1);
-			filter: blur(2px) brightness(0.85);
+			filter: blur(1.5px) brightness(1.2);
 		}
 
 		.grid::after {
