@@ -2641,7 +2641,8 @@ input, select, textarea {
 				.post .row li,
 				.post .alt li,
 				.post .alt p,
-				.post ol,				
+				.post ol,	
+				.post blockquote,			
 				.post table td,
 				.post table th {
 					font-size: 12pt;
