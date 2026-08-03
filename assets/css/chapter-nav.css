@@ -1,0 +1,32 @@
+				.chapter-nav {
+					position: relative;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding: 0 0 0.5em 0.8em;
+				}
+
+				.chapter-nav ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					padding: 0 0.8em 0.5em 0 ;
+				}	
+				.chapter-nav a ,span{
+					font-size: 12px;
+				}
+				.chapter-nav .page-nav {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+					font-size: 12px;
+					padding: 0 0 0.5em 0;					
+				}
+
+				.chapter-nav .page-nav a {
+					text-decoration: none;
+				}
+
+				.chapter-nav .page-nav span.active {
+					font-weight: bold;
+				}
