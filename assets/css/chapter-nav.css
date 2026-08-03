@@ -31,3 +31,22 @@
 				.chapter-nav .page-nav span.active {
 					font-weight: bold;
 				}
+
+				@media screen and (max-width: 736px) {
+
+				.post > footer.chapter-nav {
+					position: relative;
+					display: flex !important;
+					flex-direction: row !important;
+					justify-content: space-between !important;
+					align-items: center !important;
+					min-height: 2.5em;
+				}
+
+				.post > footer.chapter-nav .page-nav {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+					white-space: nowrap;
+				}
+}
