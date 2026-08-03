@@ -12,7 +12,8 @@
 					padding: 0;
 					padding: 0 0.8em 0.5em 0 ;
 				}	
-				.chapter-nav a ,span{
+				.chapter-nav a,
+				.chapter-nav span {
 					font-size: 12px;
 				}
 				.chapter-nav .page-nav {
