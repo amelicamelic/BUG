@@ -11,6 +11,114 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="icon" type="image/png" sizes="32x32" href="./images/logo32x32.png">
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.album-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 60px;
+				justify-content: center;
+				margin-bottom: 35px;
+			}
+
+			.album {
+				display: block;
+				width: 180px;
+				border: 1px solid #e2e2e2;
+				text-decoration: none;
+				color: inherit;
+				font-family: sans-serif;
+				border-radius: 0px;
+				overflow: hidden;
+				transition: 0.5s;					
+			}
+
+			.album:hover {
+				border: 1px solid #e2e2e2;
+				transform: scale(1);
+				box-shadow: 0 0 10px #cdcdcd;	
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: 50% 50%;
+				grid-template-rows: 50% 50%;
+				gap: 0px;
+				opacity: .65;
+				aspect-ratio: 1 / 1;
+				background: #99999950;
+				transition: 0.5s;	
+				overflow: hidden;   /* 防止整体溢出 */
+				position: relative;
+			}
+			.album:hover .grid{
+				opacity: 1;
+			}
+			.album:hover .cell::before {
+				filter: blur(1.1px) brightness(1.4);			
+			}		
+			/* 白色半透明遮罩 */
+			.grid::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: #ffffff80;
+				z-index: 10;
+				pointer-events: none;
+			}
+			.cell {
+				overflow: hidden;
+				position: relative;
+			}
+
+			.cell::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				transition: 0.5s;
+				background-size: cover;
+				background-position: center;
+				background-image: inherit;
+
+				transform: scale(1.1);
+				filter: blur(1.5px) brightness(1.2);
+			}
+
+			.grid::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				pointer-events: none;
+				z-index: 10;
+
+				background:
+					linear-gradient(#fff,#fff) center / 100% 1px no-repeat,
+					linear-gradient(#fff,#fff) center / 1px 100% no-repeat;
+			}
+
+
+			/* 标题 */
+			.albumtitle {
+				height: 48px;
+				padding: 8px;
+				text-align: center;
+				background-color: #fff;
+				border-top: 1px solid #e2e2e2;
+				font-size: 14px;
+				line-height: 32px;
+				box-sizing: border-box;
+			}
+			@media (max-width: 640px) {
+				.album-list {
+					gap: 35px;	
+				}
+				.album {    
+					width: 65%;
+				}
+			.album:hover {
+				box-shadow: none;
+				}							
+			}
+		</style>
 	</head>
 	<body class="single is-preload">
 
@@ -102,8 +210,8 @@
 								<div class="album-list">
 									<a href="art/设定图.html" class="album">
 										<div class="grid">
-											<div class="cell" style="background-image:url(./art/设定图/G1.png)"></div>
-											<div class="cell" style="background-image:url(./art/设定图/G2.png)"></div>
+											<div class="cell" style="background-image:url(./art/thumb/设定图G1.png)"></div>
+											<div class="cell" style="background-image:url(./art/thumb/设定图G2.png)"></div>
 											<div class="cell" style="background-image:url()"></div>
 											<div class="cell" style="background-image:url()"></div>
 										</div>
@@ -111,10 +219,10 @@
 									</a>	
 									<a href="art/插图.html" class="album">
 										<div class="grid">
-											<div class="cell" style="background-image:url(./art/插图/3.jpeg)"></div>
-											<div class="cell" style="background-image:url(./art/插图/1.jpeg)"></div>
-											<div class="cell" style="background-image:url(./art/插图/2.jpeg)"></div>
-											<div class="cell" style="background-image:url()"></div>
+											<div class="cell" style="background-image:url(./art/thumb/插图3.jpg)"></div>
+											<div class="cell" style="background-image:url(./art/thumb/插图1.jpg)"></div>
+											<div class="cell" style="background-image:url(./art/thumb/插图2.jpg)"></div>
+											<div class="cell" style="background-image:url(./art/thumb/插图4.jpg)"></div>
 										</div>
 										<div class="albumtitle">插图</div>
 									</a>	
@@ -129,7 +237,7 @@
 									</a>
 									<a href="art/LOGO.html" class="album">
 										<div class="grid">
-											<div class="cell" style="background-image:url(./art/logo/1-1.jpeg)"></div>
+											<div class="cell" style="background-image:url(./art/thumb/LOGO1.jpg)"></div>
 											<div class="cell" style="background-image:url()"></div>
 											<div class="cell" style="background-image:url()"></div>
 											<div class="cell" style="background-image:url()"></div>
@@ -172,112 +280,4 @@
 
 	</body>
 
-	<style>
-		.album-list {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 60px;
-			justify-content: center;
-			margin-bottom: 35px;
-		}
-
-		.album {
-			display: block;
-			width: 180px;
-			border: 1px solid #e2e2e2;
-			text-decoration: none;
-			color: inherit;
-			font-family: sans-serif;
-			border-radius: 0px;
-			overflow: hidden;
-			transition: 0.5s;					
-		}
-
-		.album:hover {
-			border: 1px solid #e2e2e2;
-			transform: scale(1);
-			box-shadow: 0 0 10px #cdcdcd;	
-		}
-
-		.grid {
-			display: grid;
-			grid-template-columns: 50% 50%;
-			grid-template-rows: 50% 50%;
-			gap: 0px;
-			opacity: .65;
-			aspect-ratio: 1 / 1;
-			background: #99999950;
-			transition: 0.5s;	
-			overflow: hidden;   /* 防止整体溢出 */
-			position: relative;
-		}
-		.album:hover .grid{
-			opacity: 1;
-		}
-		.album:hover .cell::before {
-			filter: blur(1.1px) brightness(1.4);			
-		}		
-		/* 白色半透明遮罩 */
-		.grid::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			background: #ffffff80;
-			z-index: 10;
-			pointer-events: none;
-		}
-		.cell {
-			overflow: hidden;
-			position: relative;
-		}
-
-		.cell::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			transition: 0.5s;
-			background-size: cover;
-			background-position: center;
-			background-image: inherit;
-
-			transform: scale(1.1);
-			filter: blur(1.5px) brightness(1.2);
-		}
-
-		.grid::after {
-			content: "";
-			position: absolute;
-			inset: 0;
-			pointer-events: none;
-			z-index: 10;
-
-			background:
-				linear-gradient(#fff,#fff) center / 100% 1px no-repeat,
-				linear-gradient(#fff,#fff) center / 1px 100% no-repeat;
-		}
-
-
-		/* 标题 */
-		.albumtitle {
-			height: 48px;
-			padding: 8px;
-			text-align: center;
-			background-color: #fff;
-			border-top: 1px solid #e2e2e2;
-			font-size: 14px;
-			line-height: 32px;
-			box-sizing: border-box;
-		}
-		@media (max-width: 640px) {
-			.album-list {
-				gap: 35px;	
-			}
-			.album {    
-				width: 65%;
-			}
-		.album:hover {
-			box-shadow: none;
-			}							
-		}
-	</style>
 </html>
