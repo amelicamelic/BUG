@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="zh-CN">
+	<head>
+		<title>王虫作为Omega重生了</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" sizes="32x32" href="./images/logo32x32.png">
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">王虫作为Omega重生了</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="世界观.html">世界观</a></li>
+								<li><a href="人物.html">人物</a></li>
+								<li><a href="#">主线</a></li>
+								<li><a href="#">补充</a></li>
+								<li><a href="#">关于</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+								<form id="search" method="get" action="search.html">
+									<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="search.html">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>主线目录</h3>
+											<p>Story Guide Index</p>
+										</a>
+									</li>									
+									<li>
+										<a href="分类总览.html">
+											<h3>分类总览</h3>
+											<p>Categories for all articles</p>
+										</a>
+									</li>
+									<li>
+										<a href="art.html">
+											<h3>图片存放</h3>
+											<p>Collection of character art</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2>搜索结果</h2>
+								</header>
+								<div class="content">
+									<div id="searchResults"></div>
+								</div>
+							</article>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
+								<header>
+									<h2>王虫作为<br>Omega重生了</h2>
+									<p>先随便写一个名字之后再改，不过只是搞OC有必要起这种小说名吗。。。</p>
+								</header>
+							</section>
+
+							<!-- About -->
+							<section class="blurb">
+								<h2>About</h2>
+								<p>设定全为剧情服务，私设很多。<br>关于虫族的设定，拟人化部分有限，没有一般虫族文多，更偏向星际文边角料的战争反派虫，虫母就是生，别较真。<br>文笔很狗屎，写这些不是为了写文，只是记录OC的故事。</p>
+								<ul class="actions">
+									<li><a href="#" class="button">Learn More</a></li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+							</section>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="./assets/js/search-index.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				const params = new URLSearchParams(window.location.search);
+				const keyword = params.get("query") || "";
+				const results = document.getElementById("searchResults");
+
+				if (keyword.trim() !== "") {
+
+					const query = keyword.toLowerCase();
+
+					const matchedPages = searchIndex.filter(page =>
+						page.content.toLowerCase().includes(query) ||
+						page.title.toLowerCase().includes(query)
+					);
+
+					if (matchedPages.length === 0) {
+
+						results.innerHTML = "<p>没有找到相关结果。</p>";
+
+					} else {
+
+						matchedPages.forEach(page => {
+
+							let cleanContent = page.content.replace(/<br\s*\/?>/gi, "\n");
+
+							cleanContent = cleanContent.replace(/<[^>]*>/g, "");
+
+							const cleanLower = cleanContent.toLowerCase();
+							const position = cleanLower.indexOf(query);
+
+							const lineStart = cleanContent.lastIndexOf("\n", position) + 1;
+
+							let lineEnd = cleanContent.indexOf("\n", position);
+
+							if (lineEnd === -1)
+								lineEnd = cleanContent.length;
+
+							const start = Math.max(lineStart, position - 25);
+							const end = Math.min(
+								lineEnd,
+								position + keyword.length + 25
+							);
+
+							let preview = cleanContent.substring(start, end).trim();
+
+							const regex = new RegExp(
+								keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+								"gi"
+							);
+
+							preview = preview.replace(
+								regex,
+								match => `<strong>${match}</strong>`
+							);
+
+							results.innerHTML += `
+								<div class="search-result">
+									<h2>
+										<a href="${page.url}">${page.title}</a>
+									</h2>
+									<p style="font-size: 0.85em;">……${preview}……</p>
+								</div>
+							`;
+						});
+					}
+				}
+			</script>
+	</body>
+</html>
