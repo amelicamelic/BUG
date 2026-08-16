@@ -3097,6 +3097,7 @@ input, select, textarea {
 			font-weight: 700;
 			padding: 0 0.75em 0.75em 0.75em;
 			text-align: left;
+		    overflow-wrap: anywhere;	
 		}
 
 		table thead {
@@ -3132,6 +3133,40 @@ input, select, textarea {
 			table.alt tfoot {
 				border-top: 0;
 			}
+			
+
+			table th:nth-child(1),
+			table td:nth-child(1) {
+				width: 30%;
+			}
+
+			table th:nth-child(2),
+			table td:nth-child(2) {
+				width: 45%;
+			}
+
+			table th:nth-child(3),
+			table td:nth-child(3) {
+				width: 25%;
+				white-space: nowrap;
+			}
+
+	@media screen and (max-width: 480px) {
+		table th:nth-child(1),
+		table td:nth-child(1) {
+			width: 45%;
+		}
+
+		table th:nth-child(2),
+		table td:nth-child(2) {
+			width: 55%;
+		}
+
+		table th:nth-child(3),
+		table td:nth-child(3) {
+			display: none;
+		}		
+	}
 
 /* Header */
 
